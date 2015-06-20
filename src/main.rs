@@ -35,6 +35,8 @@ use map::*;
 
 mod game;
 use game::*;
+use game::stated_game_app::GameState;
+use game::stated_game_app::StateMachine;
 
 use gfx::traits::{Device, Stream, StreamFactory};
 use std::cell::RefCell;
@@ -50,6 +52,8 @@ use piston::input::{ Button, Key, Input };
 
 fn main() {
     let mut Game = game::container::Container::create();
+    let ups = Game.config.video.ups_limit;
+    let max_fps = Game.config.video.fps_limit;
 
     let window: Window = WindowSettings::new("osu_rs", [Game.config.video.width, Game.config.video.height])
         .exit_on_esc(true).vsync(Game.config.video.enable_vsync).samples(0).into();
@@ -58,9 +62,10 @@ fn main() {
     let mut fps = fps_counter.tick();
 
     let ref window = Rc::new(RefCell::new(window));
+    let ref Game = Rc::new(RefCell::new(Game));
     for e in window.clone().events()
-        .ups(Game.config.video.ups_limit)
-        .max_fps(Game.config.video.fps_limit) {
+        .ups(ups)
+        .max_fps(max_fps) {
             match e {
                 Event::Render(_) => {
                     //Only rendering GameState -> Screen should be placed there
@@ -70,12 +75,12 @@ fn main() {
                     // device.cleanup();
                 }
                 Event::Input(Input::Press(Button::Keyboard(Key::C))) => {
-
+                    Game.borrow_mut().app.set_state(GameState::Initial);
                 }
 
                 Event::Update(_) => {
                     //Game loop logics should be placed there
-                    let title = format!("osu-rs @ {}FPS", fps);
+                    let title = format!("osu-rs @ {}FPS @ {:?}", fps, Game.borrow().app.current_state);
                     window.borrow_mut().set_title(title);
                 }
                 _ => {}

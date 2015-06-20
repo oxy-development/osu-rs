@@ -2,9 +2,11 @@ use std::fs::PathExt;
 use std::path::Path;
 
 use game::config::*;
+use game::stated_game_app::*;
 
 pub struct Container {
-    pub config: Config
+    pub config: Config,
+    pub app: GameApp
 }
 
 impl Container {
@@ -17,8 +19,13 @@ impl Container {
             cfg.to_file(Path::new("./bin/settings.toml"));
         }
 
+        let mut app = GameApp::new();
+        app.add_state(GameState::Loading, vec![GameState::Initial].as_ref());
+        app.add_state(GameState::Initial, vec![GameState::Settings, GameState::SongChoose].as_ref());
+
         Container {
-            config: cfg
+            config: cfg,
+            app: app.clone()
         }
     }
 }
