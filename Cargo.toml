@@ -5,9 +5,18 @@ version = "0.0.1"
 authors = [ "Cherrionella <gorokhov-dev@yandex.ru>" ]
 
 [dependencies]
-toml = "0.1"
+toml = "*"
 time = "*"
 rand = "*"
+image = "*"
+fps_counter = "*"
+sdl2 = "*"
+pistoncore-sdl2_window = "*"
+gfx = "*"
+gfx_device_gl = "*"
+flate2 = "*"
+piston = "0.2"
+rustc-serialize = "*"
 
 # The development profile, used for `cargo build`
 [profile.dev]
