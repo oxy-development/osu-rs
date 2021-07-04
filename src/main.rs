@@ -22,7 +22,7 @@ use game::*;
 use game::stated_game_app::GameState;
 use game::stated_game_app::StateMachine;
 
-use gfx::traits::{Device, Stream, StreamFactory};
+// use gfx::traits::{Device, Stream, StreamFactory};
 use std::cell::RefCell;
 use std::cmp::max;
 use std::f32::consts::PI;
