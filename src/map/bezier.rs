@@ -1,8 +1,6 @@
 #![feature(test)]
-extern crate test;
-extern crate rand;
 
-use self::rand::*;
+use rand::*;
 use std::num::*;
 use std::mem;
 

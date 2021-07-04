@@ -1,7 +1,7 @@
 use std::default;
 
-use map::bezier::Bezier;
 use std::mem;
+use crate::map::bezier::Bezier;
 
 pub const MAX_X:i32 = 512;
 pub const MAX_Y:i32 = 384;
