@@ -3,20 +3,24 @@
 name = "osu_rs"
 version = "0.0.1"
 authors = [ "Cherrionella <gorokhov-dev@yandex.ru>" ]
+edition = "2018"
 
 [dependencies]
-toml = "*"
-time = "*"
-rand = "*"
-image = "*"
-fps_counter = "*"
-sdl2 = "*"
-pistoncore-sdl2_window = "*"
-gfx = "*"
-gfx_device_gl = "*"
-flate2 = "*"
-piston = "0.2"
-rustc-serialize = "*"
+toml = "0.1.20" #TODO:outdated
+#time = "0.1.26"
+rand = "0.8.0" #used in bezier interpolation #I bumped this from 0.3.23.
+#image = "0.5.0"
+fps_counter = "0.2.0"
+#sdl2 = "0.4.0"
+#gfx = "0.8.0"
+#gfx_device_gl = "0.8.0"
+#flate2 = "0.2.7"
+rustc-serialize = "0.3.15" #serializing types #TODO:DEPRACTICED
+
+#The following dependencies have interdependencies with each other. be careful when updating
+piston = "0.18.0" #TODO:OUTDATED
+pistoncore-sdl2_window = "0.25.0" #creates window and interfaces with opengl stuff? #TODO:OUTDATED
+
 
 # The development profile, used for `cargo build`
 [profile.dev]

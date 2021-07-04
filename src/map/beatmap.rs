@@ -1,11 +1,11 @@
 #![feature(test)]
-extern crate test;
 
 use std::collections::HashMap;
 use std::io;
 use std::fs::File;
 use std::str::Lines;
-use map::hit_object::*;
+// use hit_object::*;
+use crate::map::hit_object::*;
 
 #[derive(Debug, Copy, Clone)]
 pub enum SampleSet {

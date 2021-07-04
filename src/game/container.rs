@@ -1,8 +1,7 @@
-use std::fs::PathExt;
 use std::path::Path;
 
-use game::config::*;
-use game::stated_game_app::*;
+use crate::stated_game_app::{GameApp, StateMachine, GameState};
+use crate::config::Config;
 
 pub struct Container {
     pub config: Config,

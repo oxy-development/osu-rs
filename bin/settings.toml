@@ -1,0 +1,31 @@
+
+[audio]
+volume_effects = 75
+volume_global = 100
+volume_music = 100
+
+[general]
+beatmap_dir = "Songs"
+replays_dir = "Replays"
+screenshots_dir = "Screenshots"
+skin_dir = "Skins"
+temp_dir = "Temp"
+
+[key_config]
+key_left = "V"
+key_pause = "Esc"
+key_right = "B"
+key_screenshot = "F12"
+
+[misc]
+confirm_exit = false
+debug_title = false
+
+[video]
+enable_vsync = false
+fps_limit = 60
+fullscreen = false
+height = 600
+show_fps_counter = false
+ups_limit = 120
+width = 800
